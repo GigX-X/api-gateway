@@ -9,10 +9,11 @@ interface DecodedToken {
     role: 'client' | 'worker' | 'admin'
 }
 
-// ! fix request error !!!
+// ! fix req.user error !!!
+
 
 export const verifyRole = (requiredRole: 'client' | 'worker' | 'admin') => {
-    return (req: Request, res: Response, next: NextFunction) => {
+    return (req: any, res: Response, next: NextFunction) => {
         const token = req.cookies.token;
 
         if (!token) {
